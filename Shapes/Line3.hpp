@@ -124,10 +124,10 @@ static PyTypeObject Line3_t = {
 
 PyObject* Line3_CreateNew( Line3 line )
 {
-    PyObject* argList = Py_BuildValue("OO", line.a, line.b);
-    PyObject* pyVector = PyObject_Call((PyObject*)&Vector3_t, argList, NULL);
+    PyObject* argList = Py_BuildValue("OO", Vector3_CreateNew(line.a), Vector3_CreateNew(line.b));
+    PyObject* pyLine = PyObject_Call((PyObject*)&Line3_t, argList, NULL);
     Py_DECREF(argList);
-    return pyVector;
+    return pyLine;
 }
 
 # endif

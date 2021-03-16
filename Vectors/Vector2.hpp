@@ -8,7 +8,7 @@
 
 /* SyVectors.Vector2 
  * 
- * A basic 2D-Vector with an x and an y axis.
+ * A basic 2D-Vector with an x and an y value.
  * 
  * This struct is used for C-Calculations and Python-Object decleration at the same time.
  * This means that: typedef Vector2 Vector2_o

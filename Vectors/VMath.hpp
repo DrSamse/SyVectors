@@ -64,9 +64,9 @@ Vector3_o UnitVector3( Vector3_o v ) {  return Scale3(v, 1 / Amount3(v));  }
 Vector3_o VectorMultiMatrix3( Vector3_o v, Matrix3 m )
 {
     return Vector3_CreateNewStruct(
-        (m.x.x + m.x.y + m.x.z) * v.x,
-        (m.y.x + m.y.y + m.y.z) * v.y,
-        (m.z.x + m.z.y + m.z.z) * v.z
+        (m.x.x*v.x + m.y.x*v.y + m.z.x*v.z),
+        (m.x.y*v.x + m.y.y*v.y + m.z.y*v.z),
+        (m.x.z*v.x + m.y.z*v.y + m.z.z*v.z)
     );
 }
 

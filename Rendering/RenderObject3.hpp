@@ -2,6 +2,7 @@
 # define _SYVECTORS_RENDER_OBJ3_HPP_
 
 # include <vector>
+# include <iostream>
 
 # include "../Shapes/Line3.hpp"
 
@@ -109,5 +110,17 @@ static PyTypeObject RenderObj3_t = {
     0,                                          /* tp_alloc */
     (newfunc)PyType_GenericNew,                 /* tp_new */
 };
+
+static PyObject* RenderObj3_CreateNew( RenderObj3 renderObj3 )
+{
+    PyObject* renderObj = PyObject_Call((PyObject*)&RenderObj3_t, NULL, NULL);
+    for (unsigned int i = 0; i < renderObj3.lines.size(); i++) {
+        Line3 line = renderObj3.lines[i];
+        PyObject* lineObj = Line3_CreateNew(line);
+        PyObject* list = PyObject_GetAttrString(renderObj, "lines");
+        PyList_Append(list, lineObj);
+    }   return renderObj;
+}
+
 
 # endif

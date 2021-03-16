@@ -4,9 +4,18 @@
 # include "../Rendering/Camera.hpp"
 # include "../Rendering/RenderObject2.hpp"
 # include "../Rendering/RenderObject3.hpp"
+# include "../Rendering/HighDetail.hpp"
+
+static PyMethodDef SyVectorsRenderMethods[] = {
+    { "LineSplitDown", PyLine3_SplitDown, METH_VARARGS, "Split a line down to a renderObj with the desired quality"},
+    { NULL, NULL, 0, NULL }
+}; 
 
 static PyObject* Init_SyVectors_Render(PyObject* m)
 {
+    // Methods
+    PyModule_AddFunctions(m, SyVectorsRenderMethods);
+
     // Camera
     if (PyType_Ready(&Camera_t) < 0) return NULL;
     Py_INCREF(&Camera_t);

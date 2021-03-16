@@ -68,6 +68,7 @@ static PyMethodDef SyVectorsVMathMethods[] = {
     { "CrossProduct", PyCrossProduct, METH_VARARGS, "Get the cross-product of the two given vectors a and b"},
     { "Scale3", PyScale3, METH_VARARGS, "Scale a vector by the given number a"},
     { "Subtract3", PySubtract3, METH_VARARGS, "Subtract two vectors"},
+    { "UnitVector3", PyUnitVector3, METH_VARARGS, "Get the unitvector of the given vector"},
     { "VectorMultiMatrix3", PyVectorMultiMatrix3, METH_VARARGS, "Multiply a vector by a matrix"},
     { NULL, NULL, 0, NULL }
 };

@@ -6,12 +6,34 @@
 # include <structmember.h>
 # include <string>
 
-// Class definition
+/* SyVectors.Vector3
+ * 
+ * A basic 3D-Vector with an x, y and z value
+ * 
+ * This struct is used for C-Calculations and Python-Object decleration at the same time.
+ * This means that: typedef Vector3 Vector3_o
+ * 
+ * Struct fields
+ *  | double x: The X-Value of the 3D-Vector
+ *  | double y: The Y-Value of the 3D-Vector
+ *  | double z: The Z-Value of the 3D-Vector
+ * 
+ * Constructors
+ *  | Vector3_o Vector3_CreateNewStruct( double x = 0, double y = 0, double z = 0 )
+ *  | Vector3_o Vector3_FromPyObject( PyObject* object )
+ * 
+ * PyObject creation/conversion
+ *  | PyObject* Vector3_CreateNew( double x = 0, double y = 0, double z = 0 )
+ *  | PyObject* Vector3_CreateNew( Vector3_o vector )
+ */
 typedef struct Vector3 {
     PyObject_HEAD
     double x = 0, y = 0, z = 0;
 } Vector3_o;
 
+/*
+ *
+ */
 Vector3_o Vector3_CreateNewStruct( double x = 0, double y = 0, double z = 0 )
 {
     Vector3_o obj;
